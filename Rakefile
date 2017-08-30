@@ -21,7 +21,8 @@ task default: :spec
 def gruf_rake_configure_rpc!
   require 'pry'
   require 'gruf'
-  require File.realpath("#{File.dirname(__FILE__)}/spec/support/grpc_server.rb")
+  $LOAD_PATH.unshift File.expand_path('../spec/pb', __FILE__)
+  require File.realpath("#{File.dirname(__FILE__)}/spec/support/grpc.rb")
   require File.realpath("#{File.dirname(__FILE__)}/spec/support/error.rb")
   require File.realpath("#{File.dirname(__FILE__)}/spec/support/serializers/proto.rb")
 

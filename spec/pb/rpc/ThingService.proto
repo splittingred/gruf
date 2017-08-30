@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package rpc;
+
+service ThingService {
+    rpc GetThing(GetThingRequest) returns (GetThingResponse) {}
+    rpc GetThings(GetThingsRequest) returns (stream Thing) {}
+    rpc CreateThings(stream Thing) returns (CreateThingsResponse) {}
+    rpc CreateThingsInStream(stream Thing) returns (stream Thing) {}
+
+    // Error calls
+    rpc GetFail(GetThingRequest) returns (GetThingResponse) {}
+    rpc GetFieldErrorFail(GetThingRequest) returns (GetThingResponse) {}
+    rpc GetException(GetThingRequest) returns (GetThingResponse) {}
+    rpc GetUncaughtException(GetThingRequest) returns (GetThingResponse) {}
+}
+
+message GetThingRequest {
+    int64 id = 1;
+}
+
+message GetThingResponse {
+    Thing thing = 1;
+}
+
+message GetThingsRequest {
+
+}
+
+message CreateThingsResponse {
+    repeated Thing things = 1;
+}
+
+message Thing {
+    int64 id = 1;
+    string name = 2;
+}
