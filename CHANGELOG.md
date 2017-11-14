@@ -2,6 +2,8 @@ Changelog for the gruf gem. This includes internal history before the gem was ma
 
 ### Pending release
 
+- Update gRPC dependency minimum to 1.7
+
 ### 2.0.2
 
 - Update Rubocop to 0.51
